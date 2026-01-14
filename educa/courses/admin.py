@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Subject, Course, Module
+from .models import Subject, Course, Module, Text
 
 
 class ModuleInline(admin.StackedInline):
@@ -19,4 +19,10 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ['title', 'overview']
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ModuleInline]
+
+
+@admin.register(Text)
+class TextAdmin(admin.ModelAdmin):
+    list_display = ['title', 'created']
+    search_fields = ['title', 'body']
 
