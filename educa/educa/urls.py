@@ -19,8 +19,11 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 
+from courses import views as course_views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("", course_views.course_list, name="course_list"),
+    path("admin/", admin.site.urls),
 ]
 
 
